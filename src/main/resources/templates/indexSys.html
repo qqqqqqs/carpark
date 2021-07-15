@@ -1,0 +1,524 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>德邦停车场管理系统</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+    <!--[if lt IE 9]>
+    <script src='assets/javascripts/html5shiv.js' type='text/javascript'></script>
+    <![endif]-->
+    <link href='assets/stylesheets/bootstrap/bootstrap.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='assets/stylesheets/bootstrap/bootstrap-responsive.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / jquery ui -->
+    <link href='assets/stylesheets/jquery_ui/jquery-ui-1.10.0.custom.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='assets/stylesheets/jquery_ui/jquery.ui.1.10.0.ie.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / switch buttons -->
+    <link href='assets/stylesheets/plugins/bootstrap_switch/bootstrap-switch.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / xeditable -->
+    <link href='assets/stylesheets/plugins/xeditable/bootstrap-editable.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='assets/stylesheets/plugins/common/bootstrap-wysihtml5.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / wysihtml5 (wysywig) -->
+    <link href='assets/stylesheets/plugins/common/bootstrap-wysihtml5.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / jquery file upload -->
+    <link href='assets/stylesheets/plugins/jquery_fileupload/jquery.fileupload-ui.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / full calendar -->
+    <link href='assets/stylesheets/plugins/fullcalendar/fullcalendar.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / select2 -->
+    <link href='assets/stylesheets/plugins/select2/select2.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / mention -->
+    <link href='assets/stylesheets/plugins/mention/mention.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / tabdrop (responsive tabs) -->
+    <link href='assets/stylesheets/plugins/tabdrop/tabdrop.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / jgrowl notifications -->
+    <link href='assets/stylesheets/plugins/jgrowl/jquery.jgrowl.min.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / datatables -->
+    <link href='assets/stylesheets/plugins/datatables/bootstrap-datatable.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / dynatrees (file trees) -->
+    <link href='assets/stylesheets/plugins/dynatree/ui.dynatree.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / color picker -->
+    <link href='assets/stylesheets/plugins/bootstrap_colorpicker/bootstrap-colorpicker.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / datetime picker -->
+    <link href='assets/stylesheets/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.min.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / daterange picker) -->
+    <link href='assets/stylesheets/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / flags (country flags) -->
+    <link href='assets/stylesheets/plugins/flags/flags.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / slider nav (address book) -->
+    <link href='assets/stylesheets/plugins/slider_nav/slidernav.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / fuelux (wizard) -->
+    <link href='assets/stylesheets/plugins/fuelux/wizard.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / flatty theme -->
+    <link href='assets/stylesheets/light-theme.css' id='color-settings-body-color' media='all' rel='stylesheet' type='text/css' />
+    <!-- / demo -->
+    <link href='assets/stylesheets/demo.css' media='all' rel='stylesheet' type='text/css' />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body class='contrast-red '>
+<header>
+    <div class='navbar'>
+        <div class='navbar-inner'>
+            <div class='container-fluid'>
+                <a class='brand' href='index.html'>
+                    <i class='icon-heart-empty'></i>
+                    <span class='hidden-phone'>主菜单</span>
+                </a>
+                <div style="font-size: 30px"></div>
+                <strong><b id="timespan" style="color:white;font-size: 20px"></b></strong>
+                <ul class='nav pull-right'>
+                    <li class='dropdown dark user-menu'>
+                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                            <img alt='Mila Kunis' height='23' src='assets/images/avatar.jpg' width='23' />
+                            <span class='user-name hidden-phone'>笨笨</span>
+                            <b class='caret'></b>
+                        </a>
+                        <ul class='dropdown-menu'>
+
+                            <li>
+                                <a href='sign_ln'>
+                                    <i class='icon-signout'></i>
+                                   退出登录
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <form accept-charset="UTF-8" action="search_results.html" class="navbar-search pull-right hidden-phone" method="get" /><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                    <button class="btn btn-link icon-search" name="button" type="submit"></button>
+                    <input autocomplete="off" class="search-query span2" id="q_header" name="q" placeholder="Search..." type="text" value="" />
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+<div id='wrapper'>
+<div id='main-nav-bg'></div>
+<nav class='' id='main-nav'>
+<div class='navigation'>
+<div class='search'>
+    <form accept-charset="UTF-8" action="search_results.html" method="get" /><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        <div class='search-wrapper'>
+            <input autocomplete="off" class="search-query" id="q" name="q" placeholder="Search..." type="text" value="" />
+            <button class="btn btn-link icon-search" name="button" type="submit"></button>
+        </div>
+    </form>
+</div>
+<ul class='nav nav-stacked'>
+<li class='active'>
+    <a href='index.html'>
+        <i class='icon-dashboard'></i>
+        <span>主界面</span>
+    </a>
+</li>
+<li class=''>
+    <a class='dropdown-collapse' href='#'>
+        <i class='icon-edit'></i>
+        <span>车位管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='indexAddPort'>
+                <i class='icon-caret-right'></i>
+                <span>添加车位</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='form_components.html'>
+                <i class='icon-caret-right'></i>
+                <span>删除车位</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='/findinfo'>
+                <i class='icon-caret-right'></i>
+                <span>查看所有车位</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='indexNotice'>
+                <i class='icon-caret-right'></i>
+                <span>发布公告</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-tint'></i>
+        <span>车牌号管理</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='ui_elements.html'>
+                <i class='icon-caret-right'></i>
+                <span>会员车辆</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='widgets.html'>
+                <i class='icon-caret-right'></i>
+                <span>普通车辆</span>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-book'></i>
+        <span>查询</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='invoice.html'>
+                <i class='icon-money'></i>
+                <span>查询所有停车记录</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='gallery.html'>
+                <i class='icon-picture'></i>
+                <span>根据日期查询</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='timeline.html'>
+                <i class='icon-time'></i>
+                <span>根据时间段查询</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='pricing_tables.html'>
+                <i class='icon-table'></i>
+                <span>根据车牌搜索记录</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='user_profile.html'>
+                <i class='icon-user'></i>
+                <span>查询今年总收入</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='err404.html'>
+                <i class='icon-question-sign'></i>
+                <span>查询会员用户</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='err500.html'>
+                <i class='icon-cogs'></i>
+                <span>查看所有在停车记录</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='sign_in'>
+                <i class='icon-signin'></i>
+                <span>退出登录</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='faq.html'>
+                <i class='icon-bullhorn'></i>
+                <span>联系管理</span>
+            </a>
+        </li>
+
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-cog'></i>
+        <span>系统设置</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='closed_navigation.html'>
+                <i class='icon-caret-right'></i>
+                <span>系统设置</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='fixed_header.html'>
+                <i class='icon-caret-right'></i>
+                <span>修改免费停车时间</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='fixed_navigation.html'>
+                <i class='icon-caret-right'></i>
+                <span>修改停车单价</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='fixed_navigation_and_header.html'>
+                <i class='icon-caret-right'></i>
+                <span>设置会员收费标准</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='fixed_navigation_and_header.html'>
+                <i class='icon-caret-right'></i>
+                <span>添加免费车辆</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='fixed_navigation_and_header.html'>
+                <i class='icon-caret-right'></i>
+                <span>移除免费车辆</span>
+            </a>
+        </li>
+    </ul>
+</li>
+
+</ul>
+</div>
+</nav>
+<section id='content'>
+        <div class='pull-right'>
+            <ul class='breadcrumb'>
+                <li><a href="#">点击修改</a> </li>
+                <li><a href="#">退出设置</a></li>
+            </ul>
+        </div>
+    <div class='container-fluid'>
+        <div class='row-fluid' id='content-wrapper'>
+            <div class='span12'>
+                <div class='page-header'>
+                    <h1 class='pull-left'>
+                        <span>系统设置</span>
+                    </h1>
+
+                </div>
+                <div class='row-fluid pricing-tables'>
+                    <div class='span3 pricing-table'>
+                        <div class='header'>普通用户</div>
+                        <div class='price blue-background'>
+                            <span>$10</span>
+                        </div>
+                        <ul class='unstyled features'>
+                            <li>
+                                <strong>￥100</strong>
+                                /每小时
+                            </li>
+                            <li>
+                                <strong>免费时间</strong>
+                                半小时
+                            </li>
+
+                            <li>
+                                <strong>普通用户</strong>
+                                <a href="#">查询</a>
+                            </li>
+                        </ul>
+                        <div class='footer'>
+                            <a href="sign_up" class="btn btn-primary">
+                                点击注册
+                            </a>
+                        </div>
+                    </div>
+                    <div class='span3 pricing-table'>
+                        <div class='header'>月卡用户</div>
+                        <div class='price orange-background'>
+                            <span>$498</span>
+                        </div>
+                        <ul class='unstyled features'>
+                            <li>当前有
+                                <strong>4位月卡用户</strong>
+
+                            </li>
+                            <li>
+                                <strong  th:text="${sy.getSysFreetime()}">免费时间</strong>
+                                1小时
+                            </li>
+                            <li>
+                                <strong  th:text="${sy.getSysHourmoney()}">￥80</strong>
+                                每小时
+                            </li>
+                            <li>
+                                <strong>月卡用户</strong>
+                               <a href="/findSysmon">查询</a>
+                            </li>
+                        </ul>
+                        <div class='footer'>
+                            <a href="#" class="btn btn-warning">
+                                去升级
+                            </a>
+                            <a href="#" class="btn btn-danger">
+                                点击修改设置
+                            </a>
+                        </div>
+                    </div>
+                    <div class='span3 pricing-table'>
+                        <div class='header'>季卡用户</div>
+                        <div class='price red-background'>
+                            <span>$798</span>
+                        </div>
+                        <ul class='unstyled features'>
+                            <li>当前有
+                                <strong>2位季卡用户</strong>
+                                <span th:text="${sys.getSysId()}"></span>
+                            </li>
+                            <li>
+                                <strong>免费时间:</strong>
+                                <span th:text="${sys.getSysFreetime()}"></span>
+                            </li>
+                            <li>
+                                <strong th:text="${sys.getSysHourmoney()}">￥50</strong>
+                                每小时
+                            </li>
+                            <li>
+                                <strong>季卡用户</strong>
+                                <a href="/findSysji">查询</a>
+                            </li>
+                        </ul>
+                        <div class='footer'>
+                            <a href="#" class="btn btn-danger">
+                                去升级
+                            </a>
+                        </div>
+                    </div>
+                    <div class='span3 pricing-table'>
+                        <div class='header'>年卡用户</div>
+                        <div class='price purple-background'>
+                            <span>$998</span>
+                        </div>
+                        <ul class='unstyled features'>
+                            <li>当前有
+                                <strong>1</strong>
+                                位年卡用户
+                            </li>
+                            <li>
+                                <strong th:text="${s.getSysFreetime()}">免费时间</strong>
+                                5小时
+                            </li>
+                            <li>
+                                <strong th:text="${s.getSysHourmoney()}">￥10</strong>
+                                每小时
+                            </li>
+                            <li>
+                                <strong>年卡用户</strong>
+                                <a href="/findSysy">须知</a>
+                            </li>
+                        </ul>
+                        <div class='footer'>
+                            <a href="#" class="btn btn-info">
+                                去升级
+                            </a>
+                        </div>
+                    </div>
+                </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- / jquery -->
+<script src='assets/javascripts/jquery/jquery.min.js' type='text/javascript'></script>
+<!-- / jquery mobile events (for touch and slide) -->
+<script src='assets/javascripts/plugins/mobile_events/jquery.mobile-events.min.js' type='text/javascript'></script>
+<!-- / jquery migrate (for compatibility with new jquery) -->
+<script src='assets/javascripts/jquery/jquery-migrate.min.js' type='text/javascript'></script>
+<!-- / jquery ui -->
+<script src='assets/javascripts/jquery_ui/jquery-ui.min.js' type='text/javascript'></script>
+<!-- / bootstrap -->
+<script src='assets/javascripts/bootstrap/bootstrap.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/flot/excanvas.js' type='text/javascript'></script>
+<!-- / sparklines -->
+<script src='assets/javascripts/plugins/sparklines/jquery.sparkline.min.js' type='text/javascript'></script>
+<!-- / flot charts -->
+<script src='assets/javascripts/plugins/flot/flot.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/flot/flot.resize.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/flot/flot.pie.js' type='text/javascript'></script>
+<!-- / bootstrap switch -->
+<script src='assets/javascripts/plugins/bootstrap_switch/bootstrapSwitch.min.js' type='text/javascript'></script>
+<!-- / fullcalendar -->
+<script src='assets/javascripts/plugins/fullcalendar/fullcalendar.min.js' type='text/javascript'></script>
+<!-- / datatables -->
+<script src='assets/javascripts/plugins/datatables/jquery.dataTables.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js' type='text/javascript'></script>
+<!-- / wysihtml5 -->
+<script src='assets/javascripts/plugins/common/wysihtml5.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/common/bootstrap-wysihtml5.js' type='text/javascript'></script>
+<!-- / select2 -->
+<script src='assets/javascripts/plugins/select2/select2.js' type='text/javascript'></script>
+<!-- / color picker -->
+<script src='assets/javascripts/plugins/bootstrap_colorpicker/bootstrap-colorpicker.min.js' type='text/javascript'></script>
+<!-- / mention -->
+<script src='assets/javascripts/plugins/mention/mention.min.js' type='text/javascript'></script>
+<!-- / input mask -->
+<script src='assets/javascripts/plugins/input_mask/bootstrap-inputmask.min.js' type='text/javascript'></script>
+<!-- / fileinput -->
+<script src='assets/javascripts/plugins/fileinput/bootstrap-fileinput.js' type='text/javascript'></script>
+<!-- / modernizr -->
+<script src='assets/javascripts/plugins/modernizr/modernizr.min.js' type='text/javascript'></script>
+<!-- / retina -->
+<script src='assets/javascripts/plugins/retina/retina.js' type='text/javascript'></script>
+<!-- / fileupload -->
+<script src='assets/javascripts/plugins/fileupload/tmpl.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/load-image.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/canvas-to-blob.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/jquery.iframe-transport.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/jquery.fileupload.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/jquery.fileupload-fp.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/jquery.fileupload-ui.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/jquery.fileupload-init.js' type='text/javascript'></script>
+<!-- / timeago -->
+<script src='assets/javascripts/plugins/timeago/jquery.timeago.js' type='text/javascript'></script>
+<!-- / slimscroll -->
+<script src='assets/javascripts/plugins/slimscroll/jquery.slimscroll.min.js' type='text/javascript'></script>
+<!-- / autosize (for textareas) -->
+<script src='assets/javascripts/plugins/autosize/jquery.autosize-min.js' type='text/javascript'></script>
+<!-- / charCount -->
+<script src='assets/javascripts/plugins/charCount/charCount.js' type='text/javascript'></script>
+<!-- / validate -->
+<script src='assets/javascripts/plugins/validate/jquery.validate.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/validate/additional-methods.js' type='text/javascript'></script>
+<!-- / naked password -->
+<script src='assets/javascripts/plugins/naked_password/naked_password-0.2.4.min.js' type='text/javascript'></script>
+<!-- / nestable -->
+<script src='assets/javascripts/plugins/nestable/jquery.nestable.js' type='text/javascript'></script>
+<!-- / tabdrop -->
+<script src='assets/javascripts/plugins/tabdrop/bootstrap-tabdrop.js' type='text/javascript'></script>
+<!-- / jgrowl -->
+<script src='assets/javascripts/plugins/jgrowl/jquery.jgrowl.min.js' type='text/javascript'></script>
+<!-- / bootbox -->
+<script src='assets/javascripts/plugins/bootbox/bootbox.min.js' type='text/javascript'></script>
+<!-- / inplace editing -->
+<script src='assets/javascripts/plugins/xeditable/bootstrap-editable.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/xeditable/wysihtml5.js' type='text/javascript'></script>
+<!-- / ckeditor -->
+<script src='assets/javascripts/plugins/ckeditor/ckeditor.js' type='text/javascript'></script>
+<!-- / filetrees -->
+<script src='assets/javascripts/plugins/dynatree/jquery.dynatree.min.js' type='text/javascript'></script>
+<!-- / datetime picker -->
+<script src='assets/javascripts/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.js' type='text/javascript'></script>
+<!-- / daterange picker -->
+<script src='assets/javascripts/plugins/bootstrap_daterangepicker/moment.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.js' type='text/javascript'></script>
+<!-- / max length -->
+<script src='assets/javascripts/plugins/bootstrap_maxlength/bootstrap-maxlength.min.js' type='text/javascript'></script>
+<!-- / dropdown hover -->
+<script src='assets/javascripts/plugins/bootstrap_hover_dropdown/twitter-bootstrap-hover-dropdown.min.js' type='text/javascript'></script>
+<!-- / slider nav (address book) -->
+<script src='assets/javascripts/plugins/slider_nav/slidernav-min.js' type='text/javascript'></script>
+<!-- / fuelux -->
+<script src='assets/javascripts/plugins/fuelux/wizard.js' type='text/javascript'></script>
+<!-- / flatty theme -->
+<script src='assets/javascripts/nav.js' type='text/javascript'></script>
+<script src='assets/javascripts/tables.js' type='text/javascript'></script>
+<script src='assets/javascripts/theme.js' type='text/javascript'></script>
+<!-- / demo -->
+<script src='assets/javascripts/demo/jquery.mockjax.js' type='text/javascript'></script>
+<script src='assets/javascripts/demo/inplace_editing.js' type='text/javascript'></script>
+<script src='assets/javascripts/demo/charts.js' type='text/javascript'></script>
+<script src='assets/javascripts/demo/demo.js' type='text/javascript'></script>
+<script type="text/javascript">
+    /*7Core-CN - 网页鼠标点击特效（爱心）*/
+    !function (e, t, a) {function r() {for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");requestAnimationFrame(r)}function n() {var t = "function" == typeof e.onclick && e.onclick;e.onclick = function (e) {t && t(), o(e)}}function o(e) {var a = t.createElement("div");a.className = "heart", s.push({el: a,x: e.clientX - 5,y: e.clientY - 5,scale: 1,alpha: 1,color: c()}), t.body.appendChild(a)}function i(e) {var a = t.createElement("style");a.type = "text/css";try {a.appendChild(t.createTextNode(e))} catch (t) {a.styleSheet.cssText = e}t.getElementsByTagName("head")[0].appendChild(a)}function c() {return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"}var s = [];e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {setTimeout(e, 1e3 / 60)}, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()}(window, document);
+</script>
+</body>
+</html>

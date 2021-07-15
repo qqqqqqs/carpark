@@ -1,0 +1,659 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>德邦停车场管理系统</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport' />
+    
+    <!--[if lt IE 9]>
+    <script src='assets/javascripts/html5shiv.js' type='text/javascript'></script>
+    <![endif]-->
+    <link href='assets/stylesheets/bootstrap/bootstrap.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='assets/stylesheets/bootstrap/bootstrap-responsive.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / jquery ui -->
+    <link href='assets/stylesheets/jquery_ui/jquery-ui-1.10.0.custom.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='assets/stylesheets/jquery_ui/jquery.ui.1.10.0.ie.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / switch buttons -->
+    <link href='assets/stylesheets/plugins/bootstrap_switch/bootstrap-switch.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / xeditable -->
+    <link href='assets/stylesheets/plugins/xeditable/bootstrap-editable.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='assets/stylesheets/plugins/common/bootstrap-wysihtml5.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / wysihtml5 (wysywig) -->
+    <link href='assets/stylesheets/plugins/common/bootstrap-wysihtml5.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / jquery file upload -->
+    <link href='assets/stylesheets/plugins/jquery_fileupload/jquery.fileupload-ui.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / full calendar -->
+    <link href='assets/stylesheets/plugins/fullcalendar/fullcalendar.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / select2 -->
+    <link href='assets/stylesheets/plugins/select2/select2.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / mention -->
+    <link href='assets/stylesheets/plugins/mention/mention.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / tabdrop (responsive tabs) -->
+    <link href='assets/stylesheets/plugins/tabdrop/tabdrop.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / jgrowl notifications -->
+    <link href='assets/stylesheets/plugins/jgrowl/jquery.jgrowl.min.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / datatables -->
+    <link href='assets/stylesheets/plugins/datatables/bootstrap-datatable.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / dynatrees (file trees) -->
+    <link href='assets/stylesheets/plugins/dynatree/ui.dynatree.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / color picker -->
+    <link href='assets/stylesheets/plugins/bootstrap_colorpicker/bootstrap-colorpicker.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / datetime picker -->
+    <link href='assets/stylesheets/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.min.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / daterange picker) -->
+    <link href='assets/stylesheets/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / flags (country flags) -->
+    <link href='assets/stylesheets/plugins/flags/flags.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / slider nav (address book) -->
+    <link href='assets/stylesheets/plugins/slider_nav/slidernav.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / fuelux (wizard) -->
+    <link href='assets/stylesheets/plugins/fuelux/wizard.css' media='all' rel='stylesheet' type='text/css' />
+    <!-- / flatty theme -->
+    <link href='assets/stylesheets/light-theme.css' id='color-settings-body-color' media='all' rel='stylesheet' type='text/css' />
+    <!-- / demo -->
+    <link href='assets/stylesheets/demo.css' media='all' rel='stylesheet' type='text/css' />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body class='contrast-red '>
+<header>
+    <div class='navbar'>
+        <div class='navbar-inner'>
+            <div class='container-fluid'>
+                <a class='brand' href='index.html'>
+
+                    <span class='hidden-phone'>主菜单</span>
+                </a>
+
+                <div style="font-size: 30px"></div>
+                    <strong><b id="timespan" style="color:white;font-size: 20px"></b></strong>
+
+                <ul class='nav pull-right'>
+
+
+                    <li class='dropdown dark user-menu'>
+                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                            <img alt='Mila Kunis' height='23' src='assets/images/avatar.jpg' width='23' />
+                            <span class='user-name hidden-phone'>笨笨</span>
+                            <b class='caret'></b>
+                        </a>
+                        <ul class='dropdown-menu'>
+
+                            <li>
+                                <a href='sign_ln'>
+                                    <i class='icon-signout'></i>
+                                   退出登录
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <form accept-charset="UTF-8" action="search_results.html" class="navbar-search pull-right hidden-phone" method="get" /><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                    <button class="btn btn-link icon-search" name="button" type="submit"></button>
+                    <input autocomplete="off" class="search-query span2" id="q_header" name="q" placeholder="查询" type="text" value="" />
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+<div id='wrapper'>
+<div id='main-nav-bg'></div>
+<nav class='' id='main-nav'>
+<div class='navigation'>
+<div class='search'>
+    <form accept-charset="UTF-8" action="search_results.html" method="get" /><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        <div class='search-wrapper'>
+            <input autocomplete="off" class="search-query" id="q" name="q" placeholder="Search..." type="text" value="" />
+            <button class="btn btn-link icon-search" name="button" type="submit"></button>
+        </div>
+    </form>
+</div>
+<ul class='nav nav-stacked'>
+<li class='active'>
+    <a href='index'>
+        <span>主界面</span>
+    </a>
+</li>
+<li class=''>
+    <a class='dropdown-collapse' href='#'>
+        <span>车位管理</span>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='indexAddPort'>
+                <span>添加车位</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='form_components.html'>
+                <span>删除车位</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='/findinfo'>
+                <span>查看所有车位</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='indexNotice'>
+                <span>发布公告</span>
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <span>车牌号管理</span>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='/selecthuiyuan'>
+                <span>会员车辆</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='widgets.html'>
+                <span>普通车辆</span>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <span>查询</span>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='/findAll'>
+                <span>查询所有停车记录</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='gallery.html'>
+                <span>根据日期查询</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='timeline.html'>
+                <span>根据时间段查询</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='pricing_tables.html'>
+                <span>根据车牌搜索记录</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='user_profile.html'>
+                <span>查询今年总收入</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='/selecthuiyuan'>
+                <span>查询会员用户</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='err500.html'>
+                <span>查看所有在停车记录</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='sign_in'>
+                <span>退出登录</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='http://www.baidu.com'>
+                <span>联系管理</span>
+            </a>
+        </li>
+
+    </ul>
+</li>
+<li>
+    <a class='dropdown-collapse ' href='indexSys'>
+        <span>系统设置</span>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='indexSys'>
+                <span>系统设置</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='fixed_header.html'>
+                <span>修改免费停车时间</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='fixed_navigation.html'>
+                <span>修改停车单价</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='fixed_navigation_and_header.html'>
+                <span>设置会员收费标准</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='fixed_navigation_and_header.html'>
+                <span>添加免费车辆</span>
+            </a>
+        </li>
+        <li class=''>
+            <a href='fixed_navigation_and_header.html'>
+                <span>移除免费车辆</span>
+            </a>
+        </li>
+    </ul>
+</li>
+
+</ul>
+</div>
+</nav>
+<section id='content'>
+<div class='container-fluid'>
+<div class='row-fluid' id='content-wrapper'>
+<div class='span12'>
+<div class='page-header'>
+    <h1 class='pull-left'>
+        <i class='icon-dashboard'></i>
+        <span>主界面</span>
+    </h1>
+</div>
+
+<div class='row-fluid'>
+    <div class='span12 box box-transparent'>
+        <div class='row-fluid'>
+            <div class='span2 box-quick-link blue-background'>
+                <a href='/findall'>
+                    <div class='header'>
+                        <div>查看所有车位</div>
+                    </div>
+                </a>
+                    <div class='content'>
+                        <b th:text="${num3}"></b>
+                    </div>
+
+            </div>
+            <div class='span2 box-quick-link green-background'>
+                <a href='#'>
+                    <div class='header'>
+                        <div>月收入</div>
+                    </div>
+                    <div class='content'></div>
+                </a>
+            </div>
+            <div class='span2 box-quick-link orange-background'>
+                <a href='#'>
+                    <div class='header'>
+                        <div>办卡数量</div>
+                    </div>
+                    <div class='content'></div>
+                </a>
+            </div>
+            <div class='span2 box-quick-link purple-background'>
+                <a href='/findPort'>
+                    <div class='header'>
+                        <div>空余车位</div>
+                    </div> </a>
+                    <div class='content'>
+                        <b th:text="${num}"></b>
+                    </div>
+
+            </div>
+            <div class='span2 box-quick-link red-background'>
+                <a href='/findNull'>
+                    <div class='header'>
+                        <div>已用车位</div>
+                    </div>
+                    <div class='content'>
+                        <b th:text="${num2}"></b>
+                    </div>
+                </a>
+            </div>
+            <div class='span2 box-quick-link muted-background'>
+
+                    <div class='header'>
+                        <div><button  class="btn btn-warning" >
+                            <input type="button" value="关闭停车场" onclick="colse()" id="colse">
+                        </button>
+                        </div>
+                    </div>
+
+               <div class='content'>
+                   <button class="btn btn-info"  >
+                       <input type="button" value="开启停车场" onclick="start()" id="start">
+                   </button>
+               </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class='title'><h2>公告栏信息</h2></div>
+
+    <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+            <div class='scrollable-area'>
+                <table class='table' style='margin-bottom:0;'>
+                    <thead>
+                    <tr>
+                        <th>
+                            编号
+                        </th>
+                        <th>
+                            公告详情
+                        </th>
+
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="no:${notic}">
+                        <td th:text="${no.noticeId}"></td>
+                        <td th:text="${no.noticeMsg}"></td>
+                        <td>
+                            <div class='text-right'>
+                                <a class='btn btn-success btn-mini' href='#'>
+                                    <i class='icon-ok'></i>
+                                </a>
+                                <a class='btn btn-danger btn-mini' th:href="@{/delete(id=${no.noticeId})}">
+                                    <i class='icon-remove'>删除</i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class='title'>公告栏信息</div>
+    <div class='actions'>
+        <a href="#" class="btn box-remove btn-mini btn-link">
+        </a>
+        <a href="#" class="btn box-collapse btn-mini btn-link">
+        </a>
+    </div>
+    <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+            <div class='scrollable-area'>
+                <table class='table' style='margin-bottom:0;'>
+                    <thead>
+                    <tr>
+                        <th>
+                            编号
+                        </th>
+                        <th>
+                            公告详情
+                        </th>
+
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="no:${notic}">
+                        <td th:text="${no.noticeId}"></td>
+                        <td th:text="${no.noticeMsg}"></td>
+
+
+                        <td>
+                            <div class='text-right'>
+                                <a class='btn btn-success btn-mini' href='#'>
+                                </a>
+                                <a class='btn btn-danger btn-mini' th:href="@{/delete(id=${no.noticeId})}">
+                                    <i class='icon-remove'>删除</i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span4">
+            </div>
+            <div class="span4">
+                <form class="form-horizontal" action="/addPort" method="post">
+                    <div class="control-group">
+                        <label class="control-label" for="inputNumber">车位号码</label>
+                        <div class="controls">
+                            <input id="inputNumber" type="text" name="portName"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn">添加</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="span4">
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- / jquery -->
+<script src='assets/javascripts/jquery/jquery.min.js' type='text/javascript'></script>
+<!-- / jquery mobile events (for touch and slide) -->
+<script src='assets/javascripts/plugins/mobile_events/jquery.mobile-events.min.js' type='text/javascript'></script>
+<!-- / jquery migrate (for compatibility with new jquery) -->
+<script src='assets/javascripts/jquery/jquery-migrate.min.js' type='text/javascript'></script>
+<!-- / jquery ui -->
+<script src='assets/javascripts/jquery_ui/jquery-ui.min.js' type='text/javascript'></script>
+<!-- / bootstrap -->
+<script src='assets/javascripts/bootstrap/bootstrap.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/flot/excanvas.js' type='text/javascript'></script>
+<!-- / sparklines -->
+<script src='assets/javascripts/plugins/sparklines/jquery.sparkline.min.js' type='text/javascript'></script>
+<!-- / flot charts -->
+<script src='assets/javascripts/plugins/flot/flot.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/flot/flot.resize.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/flot/flot.pie.js' type='text/javascript'></script>
+<!-- / bootstrap switch -->
+<script src='assets/javascripts/plugins/bootstrap_switch/bootstrapSwitch.min.js' type='text/javascript'></script>
+<!-- / fullcalendar -->
+<script src='assets/javascripts/plugins/fullcalendar/fullcalendar.min.js' type='text/javascript'></script>
+<!-- / datatables -->
+<script src='assets/javascripts/plugins/datatables/jquery.dataTables.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/datatables/jquery.dataTables.columnFilter.js' type='text/javascript'></script>
+<!-- / wysihtml5 -->
+<script src='assets/javascripts/plugins/common/wysihtml5.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/common/bootstrap-wysihtml5.js' type='text/javascript'></script>
+<!-- / select2 -->
+<script src='assets/javascripts/plugins/select2/select2.js' type='text/javascript'></script>
+<!-- / color picker -->
+<script src='assets/javascripts/plugins/bootstrap_colorpicker/bootstrap-colorpicker.min.js' type='text/javascript'></script>
+<!-- / mention -->
+<script src='assets/javascripts/plugins/mention/mention.min.js' type='text/javascript'></script>
+<!-- / input mask -->
+<script src='assets/javascripts/plugins/input_mask/bootstrap-inputmask.min.js' type='text/javascript'></script>
+<!-- / fileinput -->
+<script src='assets/javascripts/plugins/fileinput/bootstrap-fileinput.js' type='text/javascript'></script>
+<!-- / modernizr -->
+<script src='assets/javascripts/plugins/modernizr/modernizr.min.js' type='text/javascript'></script>
+<!-- / retina -->
+<script src='assets/javascripts/plugins/retina/retina.js' type='text/javascript'></script>
+<!-- / fileupload -->
+<script src='assets/javascripts/plugins/fileupload/tmpl.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/load-image.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/canvas-to-blob.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/jquery.iframe-transport.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/jquery.fileupload.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/jquery.fileupload-fp.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/jquery.fileupload-ui.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/fileupload/jquery.fileupload-init.js' type='text/javascript'></script>
+<!-- / timeago -->
+<script src='assets/javascripts/plugins/timeago/jquery.timeago.js' type='text/javascript'></script>
+<!-- / slimscroll -->
+<script src='assets/javascripts/plugins/slimscroll/jquery.slimscroll.min.js' type='text/javascript'></script>
+<!-- / autosize (for textareas) -->
+<script src='assets/javascripts/plugins/autosize/jquery.autosize-min.js' type='text/javascript'></script>
+<!-- / charCount -->
+<script src='assets/javascripts/plugins/charCount/charCount.js' type='text/javascript'></script>
+<!-- / validate -->
+<script src='assets/javascripts/plugins/validate/jquery.validate.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/validate/additional-methods.js' type='text/javascript'></script>
+<!-- / naked password -->
+<script src='assets/javascripts/plugins/naked_password/naked_password-0.2.4.min.js' type='text/javascript'></script>
+<!-- / nestable -->
+<script src='assets/javascripts/plugins/nestable/jquery.nestable.js' type='text/javascript'></script>
+<!-- / tabdrop -->
+<script src='assets/javascripts/plugins/tabdrop/bootstrap-tabdrop.js' type='text/javascript'></script>
+<!-- / jgrowl -->
+<script src='assets/javascripts/plugins/jgrowl/jquery.jgrowl.min.js' type='text/javascript'></script>
+<!-- / bootbox -->
+<script src='assets/javascripts/plugins/bootbox/bootbox.min.js' type='text/javascript'></script>
+<!-- / inplace editing -->
+<script src='assets/javascripts/plugins/xeditable/bootstrap-editable.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/xeditable/wysihtml5.js' type='text/javascript'></script>
+<!-- / ckeditor -->
+<script src='assets/javascripts/plugins/ckeditor/ckeditor.js' type='text/javascript'></script>
+<!-- / filetrees -->
+<script src='assets/javascripts/plugins/dynatree/jquery.dynatree.min.js' type='text/javascript'></script>
+<!-- / datetime picker -->
+<script src='assets/javascripts/plugins/bootstrap_datetimepicker/bootstrap-datetimepicker.js' type='text/javascript'></script>
+<!-- / daterange picker -->
+<script src='assets/javascripts/plugins/bootstrap_daterangepicker/moment.min.js' type='text/javascript'></script>
+<script src='assets/javascripts/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.js' type='text/javascript'></script>
+<!-- / max length -->
+<script src='assets/javascripts/plugins/bootstrap_maxlength/bootstrap-maxlength.min.js' type='text/javascript'></script>
+<!-- / dropdown hover -->
+<script src='assets/javascripts/plugins/bootstrap_hover_dropdown/twitter-bootstrap-hover-dropdown.min.js' type='text/javascript'></script>
+<!-- / slider nav (address book) -->
+<script src='assets/javascripts/plugins/slider_nav/slidernav-min.js' type='text/javascript'></script>
+<!-- / fuelux -->
+<script src='assets/javascripts/plugins/fuelux/wizard.js' type='text/javascript'></script>
+<!-- / flatty theme -->
+<script src='assets/javascripts/nav.js' type='text/javascript'></script>
+<script src='assets/javascripts/tables.js' type='text/javascript'></script>
+<script src='assets/javascripts/theme.js' type='text/javascript'></script>
+<!-- / demo -->
+<script src='assets/javascripts/demo/jquery.mockjax.js' type='text/javascript'></script>
+<script src='assets/javascripts/demo/inplace_editing.js' type='text/javascript'></script>
+<script src='assets/javascripts/demo/charts.js' type='text/javascript'></script>
+<script src='assets/javascripts/demo/demo.js' type='text/javascript'></script>
+<script>
+    function colse(){
+        var colum=document.getElementById("colse").value;
+        if (colum=="关闭停车场"){
+           var q1=confirm("确认关闭停车场吗？")
+            if (q1==true){
+                alert("停车场关闭成功")
+                return true
+            }else {
+                return false
+                alert("停车场关闭失败")
+            }
+
+        }
+    }
+
+    function start(){
+        var col=document.getElementById("start").value;
+        if (col=="开启停车场"){
+            var q1=confirm("确认开启停车场吗？")
+            if (q1==true){
+                alert("停车场开启成功")
+                return true
+            }else {
+                return false
+                alert("停车场开启失败")
+            }
+        }
+    }
+</script>
+<script>
+    function time(){//编写获取时间的函数
+        var date = new Date();//创建JS自带的Date日期对象
+
+        var year = date.getFullYear();//获取年
+
+        var month = date.getMonth()+1;//获取月，注意其范围是0~30，使用时需要加1
+        month=month<10?"0"+month:month;//三则运算符判断是个位数则前面加一个零，好看
+
+        var day = date.getDate();//获取日
+        day=day<10?"0"+day:day;
+
+        var weekday = "日一二三四五六".charAt(date.getDay());//获取周，也可以写成这样("日","一","二","三","四","五","六")，其本质是字符数组
+
+        var hour = date.getHours();//获取小时
+        hour=hour<10?"0"+hour:hour;
+
+        var minute = date.getMinutes();//获取分钟
+        minute=minute<10?"0"+minute:minute;
+
+        var second = date.getSeconds();//获取秒
+        second =second <10?"0"+second :second ;
+
+        var current = year+"-"+month+"-"+day+" 星期"+weekday+" "+hour+":"+minute+":"+second;
+        console.log(current);//在控制台打印当前时间
+        document.getElementById("timespan").innerHTML=current;//获取对应ID标签的对象，将变量current显示在对应位置
+    }
+    time();
+    setInterval("time()",1000);//setInterval函数可以延迟一定时间后执行某一函数
+</script>
+
+<script>
+    // ...
+    // 获取时间
+    // ...
+    document.getElementById("timespan").innerHTML=current;//document代表在当前“文档”中
+
+    time();//首先执行一次
+    setInterval("time()",1000);//每隔1000ms执行一次time()函数，首次执行需要等待1s
+</script>
+<!--<script>-->
+<!--    function eventfun(){-->
+<!--console.log(this);-->
+<!--}-->
+<!--<input type="button" onclick="eventfun()" value="button" >;-->
+<!--    // 这里涉及到一个this作用域的问题，eventfun再这里是一个全局函数, 对象是[ob-->
+<!--</script>-->
+
+<script>
+    var id = 5;
+    let boolean;
+    boolean flag = false;
+
+     /**重点：ajax只需要type和url属性*/
+     $.ajax({
+             async: false,
+            cache: false,
+             type: 'POST',
+             url: 'CarController/state/' + flag + '/' + id, //（1）请求的action路径,可以传递参数到后台
+             error: function() {
+                 alert('请求失败 ');
+             },
+         success: function(data) {
+                alert(data);
+             }
+     });
+</script>
+<script type="text/javascript">
+    /*7Core-CN - 网页鼠标点击特效（爱心）*/
+    !function (e, t, a) {function r() {for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");requestAnimationFrame(r)}function n() {var t = "function" == typeof e.onclick && e.onclick;e.onclick = function (e) {t && t(), o(e)}}function o(e) {var a = t.createElement("div");a.className = "heart", s.push({el: a,x: e.clientX - 5,y: e.clientY - 5,scale: 1,alpha: 1,color: c()}), t.body.appendChild(a)}function i(e) {var a = t.createElement("style");a.type = "text/css";try {a.appendChild(t.createTextNode(e))} catch (t) {a.styleSheet.cssText = e}t.getElementsByTagName("head")[0].appendChild(a)}function c() {return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"}var s = [];e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {setTimeout(e, 1e3 / 60)}, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()}(window, document);
+</script>
+</body>
+</html>

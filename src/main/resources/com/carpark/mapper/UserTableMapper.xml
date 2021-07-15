@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.carpark.mapper.UserTableMapper" >
+  <resultMap id="BaseResultMap" type="com.carpark.pojo.UserTable" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="car_name" property="carName" jdbcType="VARCHAR" />
+    <result column="car_StartTime" property="carStarttime" jdbcType="VARCHAR" />
+    <result column="car_Type" property="carType" jdbcType="VARCHAR" />
+    <result column="car_state" property="carState" jdbcType="VARCHAR" />
+    <result column="car_endTime" property="carEndtime" jdbcType="VARCHAR" />
+    <result column="car_money" property="carMoney" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    user_id, car_name, car_StartTime, car_Type, car_state, car_endTime, car_money
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.carpark.pojo.UserTableExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_table
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_table
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.carpark.pojo.UserTableExample" >
+    delete from user_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.carpark.pojo.UserTable" >
+    insert into user_table (user_id, car_name, car_StartTime, 
+      car_Type, car_state, car_endTime, 
+      car_money)
+    values (#{userId,jdbcType=INTEGER}, #{carName,jdbcType=VARCHAR}, #{carStarttime,jdbcType=VARCHAR}, 
+      #{carType,jdbcType=VARCHAR}, #{carState,jdbcType=VARCHAR}, #{carEndtime,jdbcType=VARCHAR}, 
+      #{carMoney,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.carpark.pojo.UserTable" >
+    insert into user_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="carName != null" >
+        car_name,
+      </if>
+      <if test="carStarttime != null" >
+        car_StartTime,
+      </if>
+      <if test="carType != null" >
+        car_Type,
+      </if>
+      <if test="carState != null" >
+        car_state,
+      </if>
+      <if test="carEndtime != null" >
+        car_endTime,
+      </if>
+      <if test="carMoney != null" >
+        car_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="carName != null" >
+        #{carName,jdbcType=VARCHAR},
+      </if>
+      <if test="carStarttime != null" >
+        #{carStarttime,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null" >
+        #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="carState != null" >
+        #{carState,jdbcType=VARCHAR},
+      </if>
+      <if test="carEndtime != null" >
+        #{carEndtime,jdbcType=VARCHAR},
+      </if>
+      <if test="carMoney != null" >
+        #{carMoney,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.carpark.pojo.UserTableExample" resultType="java.lang.Integer" >
+    select count(*) from user_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+
+  <select id="selectMoney" parameterType="com.carpark.pojo.UserTableExample" resultType="java.lang.Integer" >
+    select SUM(carMoney)
+        from user_table
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user_table
+    <set >
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.carName != null" >
+        car_name = #{record.carName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carStarttime != null" >
+        car_StartTime = #{record.carStarttime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carType != null" >
+        car_Type = #{record.carType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carState != null" >
+        car_state = #{record.carState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carEndtime != null" >
+        car_endTime = #{record.carEndtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carMoney != null" >
+        car_money = #{record.carMoney,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user_table
+    set user_id = #{record.userId,jdbcType=INTEGER},
+      car_name = #{record.carName,jdbcType=VARCHAR},
+      car_StartTime = #{record.carStarttime,jdbcType=VARCHAR},
+      car_Type = #{record.carType,jdbcType=VARCHAR},
+      car_state = #{record.carState,jdbcType=VARCHAR},
+      car_endTime = #{record.carEndtime,jdbcType=VARCHAR},
+      car_money = #{record.carMoney,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carpark.pojo.UserTable" >
+    update user_table
+    <set >
+      <if test="carName != null" >
+        car_name = #{carName,jdbcType=VARCHAR},
+      </if>
+      <if test="carStarttime != null" >
+        car_StartTime = #{carStarttime,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null" >
+        car_Type = #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="carState != null" >
+        car_state = #{carState,jdbcType=VARCHAR},
+      </if>
+      <if test="carEndtime != null" >
+        car_endTime = #{carEndtime,jdbcType=VARCHAR},
+      </if>
+      <if test="carMoney != null" >
+        car_money = #{carMoney,jdbcType=BIGINT},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carpark.pojo.UserTable" >
+    update user_table
+    set car_name = #{carName,jdbcType=VARCHAR},
+      car_StartTime = #{carStarttime,jdbcType=VARCHAR},
+      car_Type = #{carType,jdbcType=VARCHAR},
+      car_state = #{carState,jdbcType=VARCHAR},
+      car_endTime = #{carEndtime,jdbcType=VARCHAR},
+      car_money = #{carMoney,jdbcType=BIGINT}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

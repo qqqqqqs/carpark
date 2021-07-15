@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.carpark.mapper.UseTableMapper" >
+  <resultMap id="BaseResultMap" type="com.carpark.pojo.UseTable" >
+    <id column="use_id" property="useId" jdbcType="INTEGER" />
+    <result column="use_mail" property="useMail" jdbcType="VARCHAR" />
+    <result column="use_phone" property="usePhone" jdbcType="VARCHAR" />
+    <result column="use_pwd" property="usePwd" jdbcType="VARCHAR" />
+    <result column="usecar_name" property="usecarName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    use_id, use_mail, use_phone, use_pwd, usecar_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.carpark.pojo.UseTableExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from use_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from use_table
+    where use_id = #{useId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from use_table
+    where use_id = #{useId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.carpark.pojo.UseTableExample" >
+    delete from use_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.carpark.pojo.UseTable" >
+    insert into use_table (use_id, use_mail, use_phone, 
+      use_pwd, usecar_name)
+    values (#{useId,jdbcType=INTEGER}, #{useMail,jdbcType=VARCHAR}, #{usePhone,jdbcType=VARCHAR}, 
+      #{usePwd,jdbcType=VARCHAR}, #{usecarName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.carpark.pojo.UseTable" >
+    insert into use_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="useId != null" >
+        use_id,
+      </if>
+      <if test="useMail != null" >
+        use_mail,
+      </if>
+      <if test="usePhone != null" >
+        use_phone,
+      </if>
+      <if test="usePwd != null" >
+        use_pwd,
+      </if>
+      <if test="usecarName != null" >
+        usecar_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="useId != null" >
+        #{useId,jdbcType=INTEGER},
+      </if>
+      <if test="useMail != null" >
+        #{useMail,jdbcType=VARCHAR},
+      </if>
+      <if test="usePhone != null" >
+        #{usePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="usePwd != null" >
+        #{usePwd,jdbcType=VARCHAR},
+      </if>
+      <if test="usecarName != null" >
+        #{usecarName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.carpark.pojo.UseTableExample" resultType="java.lang.Integer" >
+    select count(*) from use_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update use_table
+    <set >
+      <if test="record.useId != null" >
+        use_id = #{record.useId,jdbcType=INTEGER},
+      </if>
+      <if test="record.useMail != null" >
+        use_mail = #{record.useMail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usePhone != null" >
+        use_phone = #{record.usePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usePwd != null" >
+        use_pwd = #{record.usePwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usecarName != null" >
+        usecar_name = #{record.usecarName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update use_table
+    set use_id = #{record.useId,jdbcType=INTEGER},
+      use_mail = #{record.useMail,jdbcType=VARCHAR},
+      use_phone = #{record.usePhone,jdbcType=VARCHAR},
+      use_pwd = #{record.usePwd,jdbcType=VARCHAR},
+      usecar_name = #{record.usecarName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carpark.pojo.UseTable" >
+    update use_table
+    <set >
+      <if test="useMail != null" >
+        use_mail = #{useMail,jdbcType=VARCHAR},
+      </if>
+      <if test="usePhone != null" >
+        use_phone = #{usePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="usePwd != null" >
+        use_pwd = #{usePwd,jdbcType=VARCHAR},
+      </if>
+      <if test="usecarName != null" >
+        usecar_name = #{usecarName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where use_id = #{useId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carpark.pojo.UseTable" >
+    update use_table
+    set use_mail = #{useMail,jdbcType=VARCHAR},
+      use_phone = #{usePhone,jdbcType=VARCHAR},
+      use_pwd = #{usePwd,jdbcType=VARCHAR},
+      usecar_name = #{usecarName,jdbcType=VARCHAR}
+    where use_id = #{useId,jdbcType=INTEGER}
+  </update>
+</mapper>

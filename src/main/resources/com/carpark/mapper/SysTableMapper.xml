@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.carpark.mapper.SysTableMapper" >
+  <resultMap id="BaseResultMap" type="com.carpark.pojo.SysTable" >
+    <id column="sys_id" property="sysId" jdbcType="INTEGER" />
+    <result column="sys_hourMoney" property="sysHourmoney" jdbcType="INTEGER" />
+    <result column="sys_freeTime" property="sysFreetime" jdbcType="VARCHAR" />
+    <result column="sys_state" property="sysState" jdbcType="INTEGER" />
+    <result column="sys_month" property="sysMonth" jdbcType="BIGINT" />
+    <result column="sys_jika" property="sysJika" jdbcType="BIGINT" />
+    <result column="sys_year" property="sysYear" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    sys_id, sys_hourMoney, sys_freeTime, sys_state, sys_month, sys_jika, sys_year
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.carpark.pojo.SysTableExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_table
+    where sys_id = #{sysId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sys_table
+    where sys_id = #{sysId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.carpark.pojo.SysTableExample" >
+    delete from sys_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.carpark.pojo.SysTable" >
+    insert into sys_table (sys_id, sys_hourMoney, sys_freeTime, 
+      sys_state, sys_month, sys_jika, 
+      sys_year)
+    values (#{sysId,jdbcType=INTEGER}, #{sysHourmoney,jdbcType=INTEGER}, #{sysFreetime,jdbcType=VARCHAR}, 
+      #{sysState,jdbcType=INTEGER}, #{sysMonth,jdbcType=BIGINT}, #{sysJika,jdbcType=BIGINT}, 
+      #{sysYear,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.carpark.pojo.SysTable" >
+    insert into sys_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sysId != null" >
+        sys_id,
+      </if>
+      <if test="sysHourmoney != null" >
+        sys_hourMoney,
+      </if>
+      <if test="sysFreetime != null" >
+        sys_freeTime,
+      </if>
+      <if test="sysState != null" >
+        sys_state,
+      </if>
+      <if test="sysMonth != null" >
+        sys_month,
+      </if>
+      <if test="sysJika != null" >
+        sys_jika,
+      </if>
+      <if test="sysYear != null" >
+        sys_year,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sysId != null" >
+        #{sysId,jdbcType=INTEGER},
+      </if>
+      <if test="sysHourmoney != null" >
+        #{sysHourmoney,jdbcType=INTEGER},
+      </if>
+      <if test="sysFreetime != null" >
+        #{sysFreetime,jdbcType=VARCHAR},
+      </if>
+      <if test="sysState != null" >
+        #{sysState,jdbcType=INTEGER},
+      </if>
+      <if test="sysMonth != null" >
+        #{sysMonth,jdbcType=BIGINT},
+      </if>
+      <if test="sysJika != null" >
+        #{sysJika,jdbcType=BIGINT},
+      </if>
+      <if test="sysYear != null" >
+        #{sysYear,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.carpark.pojo.SysTableExample" resultType="java.lang.Integer" >
+    select count(*) from sys_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sys_table
+    <set >
+      <if test="record.sysId != null" >
+        sys_id = #{record.sysId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sysHourmoney != null" >
+        sys_hourMoney = #{record.sysHourmoney,jdbcType=INTEGER},
+      </if>
+      <if test="record.sysFreetime != null" >
+        sys_freeTime = #{record.sysFreetime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysState != null" >
+        sys_state = #{record.sysState,jdbcType=INTEGER},
+      </if>
+      <if test="record.sysMonth != null" >
+        sys_month = #{record.sysMonth,jdbcType=BIGINT},
+      </if>
+      <if test="record.sysJika != null" >
+        sys_jika = #{record.sysJika,jdbcType=BIGINT},
+      </if>
+      <if test="record.sysYear != null" >
+        sys_year = #{record.sysYear,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sys_table
+    set sys_id = #{record.sysId,jdbcType=INTEGER},
+      sys_hourMoney = #{record.sysHourmoney,jdbcType=INTEGER},
+      sys_freeTime = #{record.sysFreetime,jdbcType=VARCHAR},
+      sys_state = #{record.sysState,jdbcType=INTEGER},
+      sys_month = #{record.sysMonth,jdbcType=BIGINT},
+      sys_jika = #{record.sysJika,jdbcType=BIGINT},
+      sys_year = #{record.sysYear,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.carpark.pojo.SysTable" >
+    update sys_table
+    <set >
+      <if test="sysHourmoney != null" >
+        sys_hourMoney = #{sysHourmoney,jdbcType=INTEGER},
+      </if>
+      <if test="sysFreetime != null" >
+        sys_freeTime = #{sysFreetime,jdbcType=VARCHAR},
+      </if>
+      <if test="sysState != null" >
+        sys_state = #{sysState,jdbcType=INTEGER},
+      </if>
+      <if test="sysMonth != null" >
+        sys_month = #{sysMonth,jdbcType=BIGINT},
+      </if>
+      <if test="sysJika != null" >
+        sys_jika = #{sysJika,jdbcType=BIGINT},
+      </if>
+      <if test="sysYear != null" >
+        sys_year = #{sysYear,jdbcType=BIGINT},
+      </if>
+    </set>
+    where sys_id = #{sysId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.carpark.pojo.SysTable" >
+    update sys_table
+    set sys_hourMoney = #{sysHourmoney,jdbcType=INTEGER},
+      sys_freeTime = #{sysFreetime,jdbcType=VARCHAR},
+      sys_state = #{sysState,jdbcType=INTEGER},
+      sys_month = #{sysMonth,jdbcType=BIGINT},
+      sys_jika = #{sysJika,jdbcType=BIGINT},
+      sys_year = #{sysYear,jdbcType=BIGINT}
+    where sys_id = #{sysId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,35 @@
+#���ݿ�����
+spring:
+  mail:
+    host: smtp.163.com
+    #    发送者账号
+    username: qxl03590525@163.com
+    #    授权密码，非登录密码
+    password: JQABULBEVZKRWWQC
+
+    default-encoding: UTF-8
+
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/carpark?serverTimezone=UTC
+    username: root
+    password: Qq_84210
+    driver-class-name: com.mysql.jdbc.Driver
+
+  mybatis:
+    typeAliasesPackage: com.carpark.pojo
+    mapperLocations: classpath:mappers/*.xml
+  #    mvc:
+  #        view:
+  #          prefix: /WEB-INF/jsp/
+  #          suffix: .jsp
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .html
+#    thymeleaf:
+#      cache: false
+#�������˿�
+server:
+  port: 8080
+

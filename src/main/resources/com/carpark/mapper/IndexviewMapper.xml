@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.carpark.mapper.IndexviewMapper" >
+  <resultMap id="BaseResultMap" type="com.carpark.pojo.Indexview" >
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="car_name" property="carName" jdbcType="VARCHAR" />
+    <result column="car_StartTime" property="carStarttime" jdbcType="VARCHAR" />
+    <result column="car_Type" property="carType" jdbcType="VARCHAR" />
+    <result column="car_state" property="carState" jdbcType="VARCHAR" />
+    <result column="car_money" property="carMoney" jdbcType="INTEGER" />
+    <result column="car_endTime" property="carEndtime" jdbcType="VARCHAR" />
+    <result column="puser_id" property="puserId" jdbcType="INTEGER" />
+    <result column="port_id" property="portId" jdbcType="INTEGER" />
+    <result column="port_name" property="portName" jdbcType="VARCHAR" />
+    <result column="port_state" property="portState" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    user_id, car_name, car_StartTime, car_Type, car_state, car_money, car_endTime, puser_id, 
+    port_id, port_name, port_state
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.carpark.pojo.IndexviewExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from indexview
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.carpark.pojo.IndexviewExample" >
+    delete from indexview
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.carpark.pojo.Indexview" >
+    insert into indexview (user_id, car_name, car_StartTime, 
+      car_Type, car_state, car_money, 
+      car_endTime, puser_id, port_id, 
+      port_name, port_state)
+    values (#{userId,jdbcType=INTEGER}, #{carName,jdbcType=VARCHAR}, #{carStarttime,jdbcType=VARCHAR}, 
+      #{carType,jdbcType=VARCHAR}, #{carState,jdbcType=VARCHAR}, #{carMoney,jdbcType=INTEGER}, 
+      #{carEndtime,jdbcType=VARCHAR}, #{puserId,jdbcType=INTEGER}, #{portId,jdbcType=INTEGER}, 
+      #{portName,jdbcType=VARCHAR}, #{portState,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.carpark.pojo.Indexview" >
+    insert into indexview
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="carName != null" >
+        car_name,
+      </if>
+      <if test="carStarttime != null" >
+        car_StartTime,
+      </if>
+      <if test="carType != null" >
+        car_Type,
+      </if>
+      <if test="carState != null" >
+        car_state,
+      </if>
+      <if test="carMoney != null" >
+        car_money,
+      </if>
+      <if test="carEndtime != null" >
+        car_endTime,
+      </if>
+      <if test="puserId != null" >
+        puser_id,
+      </if>
+      <if test="portId != null" >
+        port_id,
+      </if>
+      <if test="portName != null" >
+        port_name,
+      </if>
+      <if test="portState != null" >
+        port_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="carName != null" >
+        #{carName,jdbcType=VARCHAR},
+      </if>
+      <if test="carStarttime != null" >
+        #{carStarttime,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null" >
+        #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="carState != null" >
+        #{carState,jdbcType=VARCHAR},
+      </if>
+      <if test="carMoney != null" >
+        #{carMoney,jdbcType=INTEGER},
+      </if>
+      <if test="carEndtime != null" >
+        #{carEndtime,jdbcType=VARCHAR},
+      </if>
+      <if test="puserId != null" >
+        #{puserId,jdbcType=INTEGER},
+      </if>
+      <if test="portId != null" >
+        #{portId,jdbcType=INTEGER},
+      </if>
+      <if test="portName != null" >
+        #{portName,jdbcType=VARCHAR},
+      </if>
+      <if test="portState != null" >
+        #{portState,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.carpark.pojo.IndexviewExample" resultType="java.lang.Integer" >
+    select count(*) from indexview
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update indexview
+    <set >
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.carName != null" >
+        car_name = #{record.carName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carStarttime != null" >
+        car_StartTime = #{record.carStarttime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carType != null" >
+        car_Type = #{record.carType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carState != null" >
+        car_state = #{record.carState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carMoney != null" >
+        car_money = #{record.carMoney,jdbcType=INTEGER},
+      </if>
+      <if test="record.carEndtime != null" >
+        car_endTime = #{record.carEndtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.puserId != null" >
+        puser_id = #{record.puserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.portId != null" >
+        port_id = #{record.portId,jdbcType=INTEGER},
+      </if>
+      <if test="record.portName != null" >
+        port_name = #{record.portName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.portState != null" >
+        port_state = #{record.portState,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update indexview
+    set user_id = #{record.userId,jdbcType=INTEGER},
+      car_name = #{record.carName,jdbcType=VARCHAR},
+      car_StartTime = #{record.carStarttime,jdbcType=VARCHAR},
+      car_Type = #{record.carType,jdbcType=VARCHAR},
+      car_state = #{record.carState,jdbcType=VARCHAR},
+      car_money = #{record.carMoney,jdbcType=INTEGER},
+      car_endTime = #{record.carEndtime,jdbcType=VARCHAR},
+      puser_id = #{record.puserId,jdbcType=INTEGER},
+      port_id = #{record.portId,jdbcType=INTEGER},
+      port_name = #{record.portName,jdbcType=VARCHAR},
+      port_state = #{record.portState,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
