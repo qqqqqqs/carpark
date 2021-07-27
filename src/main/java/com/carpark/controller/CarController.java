@@ -1,5 +1,6 @@
 package com.carpark.controller;
 
+import com.carpark.LogTest;
 import com.carpark.pojo.AdminTable;
 import com.carpark.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 
-;
+
 
 @Controller
 public class CarController {
@@ -98,6 +99,7 @@ public class CarController {
             model.addAttribute("msg", "账号或密码错误");
             return "sign_in";
         }else {
+
             session.setAttribute("admin",admin);
             return "index";
         }
@@ -106,26 +108,18 @@ public class CarController {
     @RequestMapping("login")
     public String login(AdminTable user,Model model,HttpSession session){
         user = service.loginCheck(user);
-        if(stat==0){
+
             if (user == null) {
                 model.addAttribute("msg", "账号或密码错误");
                 return "userlogin";
             }else {
+                LogTest logTest=new LogTest();
+                logTest.test(user);
                 session.setAttribute("user" ,user);
                 return "userindex";
         }
 
-        }else {
-            return "error";
-        }
-
     }
-
-
-
-
-
-
 
 
 

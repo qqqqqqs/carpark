@@ -11,7 +11,7 @@ public class Indexview {
 
     private String carState;
 
-    private Integer carMoney;
+    private Long carMoney;
 
     private String carEndtime;
 
@@ -63,11 +63,11 @@ public class Indexview {
         this.carState = carState == null ? null : carState.trim();
     }
 
-    public Integer getCarMoney() {
+    public Long getCarMoney() {
         return carMoney;
     }
 
-    public void setCarMoney(Integer carMoney) {
+    public void setCarMoney(Long carMoney) {
         this.carMoney = carMoney;
     }
 

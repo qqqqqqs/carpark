@@ -7,7 +7,7 @@
     <result column="car_StartTime" property="carStarttime" jdbcType="VARCHAR" />
     <result column="car_Type" property="carType" jdbcType="VARCHAR" />
     <result column="car_state" property="carState" jdbcType="VARCHAR" />
-    <result column="car_money" property="carMoney" jdbcType="INTEGER" />
+    <result column="car_money" property="carMoney" jdbcType="BIGINT" />
     <result column="car_endTime" property="carEndtime" jdbcType="VARCHAR" />
     <result column="puser_id" property="puserId" jdbcType="INTEGER" />
     <result column="port_id" property="portId" jdbcType="INTEGER" />
@@ -102,7 +102,7 @@
       car_endTime, puser_id, port_id, 
       port_name, port_state)
     values (#{userId,jdbcType=INTEGER}, #{carName,jdbcType=VARCHAR}, #{carStarttime,jdbcType=VARCHAR}, 
-      #{carType,jdbcType=VARCHAR}, #{carState,jdbcType=VARCHAR}, #{carMoney,jdbcType=INTEGER}, 
+      #{carType,jdbcType=VARCHAR}, #{carState,jdbcType=VARCHAR}, #{carMoney,jdbcType=BIGINT}, 
       #{carEndtime,jdbcType=VARCHAR}, #{puserId,jdbcType=INTEGER}, #{portId,jdbcType=INTEGER}, 
       #{portName,jdbcType=VARCHAR}, #{portState,jdbcType=VARCHAR})
   </insert>
@@ -160,7 +160,7 @@
         #{carState,jdbcType=VARCHAR},
       </if>
       <if test="carMoney != null" >
-        #{carMoney,jdbcType=INTEGER},
+        #{carMoney,jdbcType=BIGINT},
       </if>
       <if test="carEndtime != null" >
         #{carEndtime,jdbcType=VARCHAR},
@@ -204,7 +204,7 @@
         car_state = #{record.carState,jdbcType=VARCHAR},
       </if>
       <if test="record.carMoney != null" >
-        car_money = #{record.carMoney,jdbcType=INTEGER},
+        car_money = #{record.carMoney,jdbcType=BIGINT},
       </if>
       <if test="record.carEndtime != null" >
         car_endTime = #{record.carEndtime,jdbcType=VARCHAR},
@@ -233,7 +233,7 @@
       car_StartTime = #{record.carStarttime,jdbcType=VARCHAR},
       car_Type = #{record.carType,jdbcType=VARCHAR},
       car_state = #{record.carState,jdbcType=VARCHAR},
-      car_money = #{record.carMoney,jdbcType=INTEGER},
+      car_money = #{record.carMoney,jdbcType=BIGINT},
       car_endTime = #{record.carEndtime,jdbcType=VARCHAR},
       puser_id = #{record.puserId,jdbcType=INTEGER},
       port_id = #{record.portId,jdbcType=INTEGER},

@@ -11,14 +11,23 @@ spring:
 
 
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/carpark?serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/carpark?characterEncoding=UTF-8
     username: root
-    password: Qq_84210
+    password: root123
     driver-class-name: com.mysql.jdbc.Driver
 
   mybatis:
     typeAliasesPackage: com.carpark.pojo
     mapperLocations: classpath:mappers/*.xml
+    hepagehelper:
+
+      lperDialect: mysql
+
+      reasonable: true
+
+      supportMethodsArguments: true
+
+      params: count=countSql
   #    mvc:
   #        view:
   #          prefix: /WEB-INF/jsp/
@@ -32,4 +41,5 @@ spring:
 #�������˿�
 server:
   port: 8080
-
+#logging:
+#    path=D:/data/mylog.txt

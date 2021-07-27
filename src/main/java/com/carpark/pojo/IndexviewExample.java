@@ -454,52 +454,52 @@ public class IndexviewExample {
             return (Criteria) this;
         }
 
-        public Criteria andCarMoneyEqualTo(Integer value) {
+        public Criteria andCarMoneyEqualTo(Long value) {
             addCriterion("car_money =", value, "carMoney");
             return (Criteria) this;
         }
 
-        public Criteria andCarMoneyNotEqualTo(Integer value) {
+        public Criteria andCarMoneyNotEqualTo(Long value) {
             addCriterion("car_money <>", value, "carMoney");
             return (Criteria) this;
         }
 
-        public Criteria andCarMoneyGreaterThan(Integer value) {
+        public Criteria andCarMoneyGreaterThan(Long value) {
             addCriterion("car_money >", value, "carMoney");
             return (Criteria) this;
         }
 
-        public Criteria andCarMoneyGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCarMoneyGreaterThanOrEqualTo(Long value) {
             addCriterion("car_money >=", value, "carMoney");
             return (Criteria) this;
         }
 
-        public Criteria andCarMoneyLessThan(Integer value) {
+        public Criteria andCarMoneyLessThan(Long value) {
             addCriterion("car_money <", value, "carMoney");
             return (Criteria) this;
         }
 
-        public Criteria andCarMoneyLessThanOrEqualTo(Integer value) {
+        public Criteria andCarMoneyLessThanOrEqualTo(Long value) {
             addCriterion("car_money <=", value, "carMoney");
             return (Criteria) this;
         }
 
-        public Criteria andCarMoneyIn(List<Integer> values) {
+        public Criteria andCarMoneyIn(List<Long> values) {
             addCriterion("car_money in", values, "carMoney");
             return (Criteria) this;
         }
 
-        public Criteria andCarMoneyNotIn(List<Integer> values) {
+        public Criteria andCarMoneyNotIn(List<Long> values) {
             addCriterion("car_money not in", values, "carMoney");
             return (Criteria) this;
         }
 
-        public Criteria andCarMoneyBetween(Integer value1, Integer value2) {
+        public Criteria andCarMoneyBetween(Long value1, Long value2) {
             addCriterion("car_money between", value1, value2, "carMoney");
             return (Criteria) this;
         }
 
-        public Criteria andCarMoneyNotBetween(Integer value1, Integer value2) {
+        public Criteria andCarMoneyNotBetween(Long value1, Long value2) {
             addCriterion("car_money not between", value1, value2, "carMoney");
             return (Criteria) this;
         }

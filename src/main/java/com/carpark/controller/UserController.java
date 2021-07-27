@@ -1,6 +1,7 @@
 package com.carpark.controller;
 
 import com.carpark.baidu.api.LicensePlate;
+import com.carpark.pojo.PortTable;
 import com.carpark.pojo.UserTable;
 import com.carpark.service.IndexService;
 import com.carpark.service.PortService;
@@ -30,10 +31,10 @@ public class UserController {
     IndexService indexService;
         //停车
     @RequestMapping(value = "addCar",method = RequestMethod.POST)
-    //上传的feil参数    传到这里
+        //上传的feil参数    传到这里
     public String addCar(@RequestParam(value = "file",required = false)MultipartFile file) throws IOException {
         //图片上传成功后，将图片的地址写到数据库
-        String filePath="D:\\image";
+        String filePath="D://image";
         //获得原始图片的拓展名
         String originalFileName=file.getOriginalFilename();
         //新的文件名字
@@ -49,8 +50,10 @@ public class UserController {
         UserTable userTable=new UserTable();
         //设置车牌号为add
         userTable.setCarName(add);
-       userTable.setCarStarttime(SysUtils.d2s(new Date()));
-       service.insert(userTable);
+        PortTable port=new PortTable();
+        port.setPortState("占用");
+        userTable.setCarStarttime(SysUtils.d2s(new Date()));
+        service.insert(userTable);
         return "userindex";
     }
 
@@ -61,14 +64,11 @@ public class UserController {
 //        return "userindex";
 //    }
 
-
-
-
     // 通过车牌查询取车
     @RequestMapping(value = "findByName" ,method = RequestMethod.POST)
     public String findByName(@RequestParam(value = "file",required = false)MultipartFile file,UserTable user, Model model) throws Exception {
         //图片上传成功后，将图片的地址写到数据库
-        String filePath="D:\\image";
+        String filePath="D://image";
         //获得原始图片的拓展名
         String originalFileName=file.getOriginalFilename();
         //新的文件名字
@@ -76,14 +76,14 @@ public class UserController {
         //封装上传文件位置的全路径
         File targetFile=new File(filePath,newfileName);
         //把本地文件上传到封装上传文件位置的全路径
+        //FileUtils.copyInputStreamToFile(file.getInputStream(), new File(filePath, newfileName));
+
         file.transferTo(targetFile);
         //把得到车牌号的截取类实例化出来
         LicensePlate licensePlate=new LicensePlate();
         //当前add 就是得到过来的车牌
         String add=licensePlate.licensePlate(targetFile.getAbsolutePath());
-        System.out.println(
-                add
-        );
+        System.out.println(add);
         UserTable tabel=service.select(add);
         if (tabel==null){
 
@@ -101,8 +101,6 @@ public class UserController {
                     return "userindex";
 
                 }
-
-
 
             }else{
                 if (hour>1){
@@ -122,7 +120,7 @@ public class UserController {
         return "usersell";
 
     }
-
+        //总收入的和
     @RequestMapping("/sum")
     public String sum(Model model){
         indexService.findall();

@@ -21,6 +21,7 @@ public class CarService {
                 .andAdminIdEqualTo(admin.getAdminId())
                 .andAdminPwdEqualTo(admin.getAdminPwd());
         List<AdminTable> list=mapper.selectByExample(example);
+        System.out.println(list);
         if (list==null||list.size()==0){
             return null;
         }else {
